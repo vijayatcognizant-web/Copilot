@@ -1,0 +1,163 @@
+/* ── Layout ── */
+.container {
+  min-height: 100vh;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 5.5rem 1rem 2.75rem;
+  isolation: isolate;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  top: -10%;
+  background: radial-gradient(
+    ellipse 80% 55% at 50% 0%,
+    rgba(255, 80, 50, 0.22) 0%,
+    rgba(255, 60, 140, 0.10) 45%,
+    transparent 70%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+.hero h1 {
+  font-size: clamp(2.8rem, 8vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  background: linear-gradient(135deg, #ffffff 40%, #ff8060 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.subtitle {
+  margin-top: 0.65rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* ── Form card ── */
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--r-card);
+  padding: 1.75rem;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255,255,255,0.04);
+}
+.input-row {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--r-pill);
+  padding: 0.3rem 0.3rem 0.3rem 1.25rem;
+  transition: border-color 0.2s;
+}
+.input-row:focus-within {
+  border-color: rgba(255, 102, 64, 0.4);
+  box-shadow: 0 0 0 3px rgba(255, 80, 50, 0.10);
+}
+.input-row input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-size: 0.95rem;
+  font-family: var(--font);
+  min-width: 0;
+}
+.input-row input::placeholder { color: var(--text-muted); }
+.input-row input:disabled      { opacity: 0.5; }
+.input-row button {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+  color: #fff;
+  border: none;
+  border-radius: var(--r-pill);
+  padding: 0.55rem 1.4rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+.input-row button:hover:not(:disabled)  { opacity: 0.85; }
+.input-row button:active:not(:disabled) { transform: scale(0.97); }
+.input-row button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── Notices ── */
+.notice {
+  margin-top: 0.9rem;
+  padding: 0.7rem 1rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+}
+.notice--error {
+  background: rgba(255, 96, 96, 0.10);
+  border: 1px solid rgba(255, 96, 96, 0.22);
+  color: #ff9090;
+}
+.notice--success {
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.18);
+  color: #6ee7a0;
+}
+.notice--success a { color: inherit; font-weight: 600; text-decoration: underline; }
+
+/* ── Links card ── */
+.links-card {
+  margin-top: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--r-card);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.links-card h2 {
+  padding: 1.25rem 1.75rem 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--text-muted);
+}
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+thead th {
+  padding: 0.85rem 1.75rem;
+  text-align: left;
+  font-weight: 500;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--surface-border);
+}
+tbody tr {
+  border-bottom: 1px solid var(--surface-border);
+  transition: background 0.1s;
+}
+tbody tr:last-child  { border-bottom: none; }
+tbody tr:hover       { background: rgba(255,255,255,0.03); }
+tbody td             { padding: 0.85rem 1.75rem; vertical-align: middle; }
+td a {
+  color: #c084fc;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+td a:hover { text-decoration: underline; }
+.url-cell {
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-muted);
+}
+.hits { font-variant-numeric: tabular-nums; text-align: right; }
