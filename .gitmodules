@@ -10,3 +10,7 @@
 	path = cli
 	url = C:/Users/70010679/Desktop/Copilot/snip-demo
 	branch = cli
+[submodule "bundle"]
+	path = bundle
+	url = C:/Users/70010679/Desktop/Copilot/snip-demo
+	branch = bundle
