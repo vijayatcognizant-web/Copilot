@@ -8,7 +8,27 @@ while the `main` branch keeps a coherent, versioned snapshot of the whole system
 main  (this branch — superproject only)
 ├── backend/    ← branch: backend   — Bun HTTP server, in-memory store
 ├── frontend/   ← branch: frontend  — Angular 19 SPA
-└── cli/        ← branch: cli       — Node.js zero-dependency CLI
+├── cli/        ← branch: cli       — Node.js zero-dependency CLI
+└── bundle/     ← branch: bundle    — GENERATED, do not hand-edit
+```
+
+Run `node scripts/build-bundle.mjs [--push]` to (re)generate `bundle/` from the
+three source branches. `bundle/` is a self-contained deployable: one `bun start`
+process serves the Angular SPA, the API, and all short-code redirects.
+
+```sh
+# Build and assemble (dry run — no push)
+node scripts/build-bundle.mjs
+
+# Build, commit, and push all changed pointers
+node scripts/build-bundle.mjs --push
+
+# Run the assembled bundle locally
+cd bundle && bun start           # http://localhost:3000
+
+# Ship with Docker
+docker build -t snip bundle/
+docker run --rm -p 3000:3000 snip
 ```
 
 ---
