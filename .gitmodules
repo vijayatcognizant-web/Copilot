@@ -1,0 +1,12 @@
+[submodule "backend"]
+	path = backend
+	url = C:/Users/70010679/Desktop/Copilot/snip-demo
+	branch = backend
+[submodule "frontend"]
+	path = frontend
+	url = C:/Users/70010679/Desktop/Copilot/snip-demo
+	branch = frontend
+[submodule "cli"]
+	path = cli
+	url = C:/Users/70010679/Desktop/Copilot/snip-demo
+	branch = cli
