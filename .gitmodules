@@ -1,16 +1,16 @@
 [submodule "backend"]
 	path = backend
-	url = C:/Users/70010679/Desktop/Copilot/snip-demo
+	url = https://github.com/vijayatcognizant-web/Copilot.git
 	branch = backend
 [submodule "frontend"]
 	path = frontend
-	url = C:/Users/70010679/Desktop/Copilot/snip-demo
+	url = https://github.com/vijayatcognizant-web/Copilot.git
 	branch = frontend
 [submodule "cli"]
 	path = cli
-	url = C:/Users/70010679/Desktop/Copilot/snip-demo
+	url = https://github.com/vijayatcognizant-web/Copilot.git
 	branch = cli
 [submodule "bundle"]
 	path = bundle
-	url = C:/Users/70010679/Desktop/Copilot/snip-demo
+	url = https://github.com/vijayatcognizant-web/Copilot.git
 	branch = bundle
