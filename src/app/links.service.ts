@@ -13,7 +13,9 @@ export interface Link {
 @Injectable({ providedIn: 'root' })
 export class LinksService {
   private http = inject(HttpClient);
-  private api = 'http://localhost:3000/api/links';
+  // Relative URL works for every deployment (bundle at :3000, Railway, Docker, etc.)
+  // In development (ng serve at :4200) the proxy.conf.json forwards /api → :3000.
+  private api = '/api/links';
 
   create(url: string): Observable<Link> {
     return this.http.post<Link>(this.api, { url });
